@@ -1,0 +1,22 @@
+default: &default
+  adapter:  postgresql
+  encoding: unicode
+  pool:     <%= ENV.fetch("PG_MAX_THREADS") { 5 } %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  host:     <%= ENV["DB_HOSTNAME"] %>
+
+production:
+  <<: *default
+  database: <%= SERVICE_NAME %>_production
+
+staging:
+  <<: *default
+  database: <%= SERVICE_NAME %>_staging
+
+development:
+  <<: *default
+  database: <%= SERVICE_NAME %>_development
+test:
+  <<: *default
+  database: <%= SERVICE_NAME %>_test

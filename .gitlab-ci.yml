@@ -1,0 +1,33 @@
+image: docker:stable
+
+variables:
+  DOCKER_DRIVER: overlay2
+  SERVICE_NAME:  service
+  IMAGE_TAG:     $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+
+services:
+- docker:dind
+
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  before_script:
+    - apk update
+    - apk add --no-cache curl jq python py-pip
+    - pip install docker-compose
+  script:
+    - docker-compose --file docker-compose-test.yml build
+    - docker-compose --file docker-compose-test.yml run --rm $SERVICE_NAME-test
+
+build:
+  stage: build
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -f ./passenger.Dockerfile -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  only:
+    - master

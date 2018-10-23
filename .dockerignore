@@ -1,0 +1,11 @@
+.bundle
+
+api_specifications/*
+coverage/*
+deploy/*
+tmp/*
+
+Docker*
+
+.env
+.ruby-version

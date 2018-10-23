@@ -1,0 +1,53 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  DisplayCopNames:   true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.5
+
+Documentation:
+  Enabled: false
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - "context"
+    - "describe"
+    - "shared_examples"
+
+Metrics/LineLength:
+  Max: 100
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '()'
+    '%I': '()'
+    '%w': '()'
+    '%W': '()'
+
+RSpec/ExampleLength:
+  Max: 12
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: 'receive'
+
+RSpec/NestedGroups:
+  Max: 5

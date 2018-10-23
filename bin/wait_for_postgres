@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while ! pg_isready -h "$DB_HOSTNAME" -U "$DB_USERNAME"  > /dev/null 2> /dev/null; do
+  echo "Connecting to $DB_HOSTNAME Failed"
+  sleep 1
+done

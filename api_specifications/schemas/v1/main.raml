@@ -1,0 +1,31 @@
+#%RAML 1.0
+title: Service
+version: v1
+baseUriParameters:
+  host:
+    description: The host
+    enum: [localhost]
+baseUri: http://{host}:5000/{version}
+protocols: [ HTTP, HTTPS ]
+mediaType: application/json
+types: {
+  "Errors":              !include responses/errors.json,
+  "HealthCheckResponse": !include responses/health_check.json
+}
+resourceTypes:
+  collection:            !include resource_types/collection.raml
+  member:                !include resource_types/member.raml
+  member_without_update: !include resource_types/member_without_update.raml
+/health_check:
+  get:
+    responses:
+      200:
+        description: Service is healthy
+        body:
+          application/json:
+            type: HealthCheckResponse
+      500:
+        description: Service is unhealthy
+        body:
+          application/json:
+            type: Errors

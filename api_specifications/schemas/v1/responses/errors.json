@@ -1,0 +1,22 @@
+{
+  "$schema":              "http://json-schema.org/draft-07/schema",
+  "type":                 "object",
+  "additionalProperties": true,
+  "required":             ["code", "message"],
+  "properties":           {
+    "code":             { "type": "string" },
+    "message":          { "type": "string" },
+    "detailed_code":    { "type": "string" },
+    "field_violations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "field":   { "type": "string" },
+            "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}

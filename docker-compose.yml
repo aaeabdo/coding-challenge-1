@@ -1,0 +1,27 @@
+version: "3.2"
+services:
+  service:
+    build:
+      context:    .
+      dockerfile: ./passenger.Dockerfile
+    env_file:
+      - ./.env
+    environment:
+      - DB_HOSTNAME=service-db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+    volumes:
+      - .:/home/app/service
+    ports:
+      - 80:80
+    depends_on:
+      - service-db
+  service-db:
+    image: postgres:10.3
+    env_file:
+      - ./.env
+  api-specification:
+    build:
+      context: ./api_specifications/schemas/v1
+    ports:
+      - 9000:9000

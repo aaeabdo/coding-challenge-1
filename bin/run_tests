@@ -1,0 +1,3 @@
+#!/bin/sh
+
+bin/wait_for_postgres && bin/rake db:create && bin/rake db:migrate && bin/rspec

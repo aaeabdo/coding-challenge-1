@@ -1,0 +1,55 @@
+description: The collection of <<resourcePathName>>
+get:
+  responses:
+    200:
+      description: OK
+      body:
+        application/json:
+          schema: <<collectionResponse>>
+    400:
+      description: Bad Request
+      body:
+        application/json:
+          schema: Errors
+    404:
+      description: Not Found
+      body:
+        application/json:
+          schema: Errors
+    500:
+      description: Internal Server Error
+      body:
+        application/json:
+          schema: Errors
+post:
+  description: Creates a <<resourcePathName | !singularize>>
+  body:
+    application/json:
+      # example: <<requestExample>>
+      schema: <<request>>
+  responses:
+    201:
+      description: Created
+      body:
+        application/json:
+          schema: <<singularResponse>>
+    400:
+      description: Bad Request
+      body:
+        application/json:
+          schema: Errors
+    409:
+      description: conflict
+      body:
+        application/json:
+          schema: Errors
+    404:
+      description: Not Found
+      body:
+        application/json:
+          schema: Errors
+    500:
+      description: Internal Server Error
+      body:
+        application/json:
+          schema: Errors

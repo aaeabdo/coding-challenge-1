@@ -1,0 +1,68 @@
+description: One member of <<resourcePathName>> is a <<resourcePathName | !singularize>>
+uriParameters:
+  id:
+    type: string
+get:
+  responses:
+    200:
+      description: OK
+      body:
+        application/json:
+          schema: <<singularResponse>>
+    404:
+      description: Not Found
+      body:
+        application/json:
+          schema: Errors
+    500:
+      description: Internal Server Error
+      body:
+        application/json:
+          schema: Errors
+put:
+  description: Modify a <<resourcePathName | !singularize>>
+  responses:
+    200:
+      description: OK
+      body:
+        application/json:
+          schema: <<singularResponse>>
+    400:
+      description: Bad Request
+      body:
+        application/json:
+          schema: Errors
+    404:
+      description: Not Found
+      body:
+        application/json:
+          schema: Errors
+    409:
+      description: Conflict
+      body:
+        application/json:
+          schema: Errors
+    500:
+      description: Internal Server Error
+      body:
+        application/json:
+          schema: Errors
+  body:
+    application/json:
+      # example: <<requestExample>>
+      schema: <<request>>
+delete:
+  description: deletes a <<resourcePathName | !singularize>>.
+  responses:
+    204:
+      description: No Content
+    404:
+      description: Not Found
+      body:
+        application/json:
+          schema: Errors
+    500:
+      description: Internal Server Error
+      body:
+        application/json:
+          schema: Errors
