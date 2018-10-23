@@ -13,7 +13,7 @@ Using docker compose:
  ```
 
 * start service API server with CRON. The server is listening to host and port: localhost:80
-* start api console (API documentation and console to try out the service)
+* start api console (API documentation and console to try out the service). you can access it via localhost:9000
 * start a DB service
 
 ## Run import task manually for testing
