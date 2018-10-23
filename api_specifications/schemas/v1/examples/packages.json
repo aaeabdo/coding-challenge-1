@@ -1,0 +1,29 @@
+{
+  "packages": [
+    {
+      "name": "A3",
+      "version": "1.0.0",
+      "publication_date": "2015-08-16T23:05:52.000Z",
+      "title": "Accurate, Adaptable, and Accessible Error Metrics for Predictive Models",
+      "description": "Supplies tools for tabulating and analyzing the results of predictive models. The methods employed are applicable to virtually any predictive model and make comparisons between different methodologies straightforward.",
+      "authors": [
+        {
+          "name": "Scott Fortmann-Roe",
+          "email": null,
+          "roles": [
+            "aut"
+          ]
+        }
+      ],
+      "maintainers": [
+        {
+          "name": "Scott Fortmann-Roe",
+          "email": "scottfr@berkeley.edu",
+          "roles": [
+            "cre"
+          ]
+        }
+      ]
+    }
+  ]
+}

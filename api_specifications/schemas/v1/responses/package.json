@@ -1,0 +1,46 @@
+{
+  "$schema":              "http://json-schema.org/draft-04/schema",
+  "type":                 "object",
+  "additionalProperties": false,
+  "properties": {
+    "name":             { "type": "string" },
+    "version":          { "type": "string" },
+    "publication_date": { "type": "string" },
+    "title":            { "type": "string" },
+    "description":      { "type": "string" },
+    "authors":          {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name":  { "type": "string" },
+          "email": { "type": ["string", "null"] },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [ "aut", "cre" ]
+            }
+          }
+        }
+      }
+    },
+    "maintainers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name":  { "type": "string" },
+          "email": { "type": ["string", "null"] },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [ "aut", "cre" ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
