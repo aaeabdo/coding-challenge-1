@@ -24,3 +24,5 @@ task :console, :environment do |_t, args|
 end
 
 task c: :console
+
+Dir['./lib/**/*.rake'].sort.each { |file| import file }

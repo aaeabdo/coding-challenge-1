@@ -12,13 +12,17 @@ gem 'rake',                 '~> 12.3.1' # task management
 gem 'sinatra',              '~> 2.0.4'  # DSL
 gem 'sinatra-activerecord', '~> 2.0.13' # let activerecord play nicely with sinatra
 gem 'sinatra-contrib',      '~> 2.0.1'  # Sinatra Extensions
+gem 'httpi',                '~> 2.4.4'  # Common interface for Ruby's HTTP clients
+gem 'treetop-dcf',          '~> 0.2.1'
+gem 'whenever',             '~> 0.10.0', require: false
 
 group :development, :test do
-  gem 'pry-byebug',    '~> 3.6.0'                  # debugging
-  gem 'reek',          '~> 5.2.0',  require: false # code smell
-  gem 'rubocop',       '~> 0.59.2', require: false # coding style enforcment
-  gem 'rubocop-rspec', '~> 1.30.0', require: false # coding style enforcment
-  gem 'dotenv',        '~> 2.5.0'                  # A Ruby gem to load environment variables from `.env`.
+  gem 'memory_profiler', '~> 0.9.12', require: false
+  gem 'pry-byebug',      '~> 3.6.0'                  # debugging
+  gem 'reek',            '~> 5.2.0',  require: false # code smell
+  gem 'rubocop',         '~> 0.59.2', require: false # coding style enforcment
+  gem 'rubocop-rspec',   '~> 1.30.0', require: false # coding style enforcment
+  gem 'dotenv',          '~> 2.5.0'                  # A Ruby gem to load environment variables from `.env`.
 end
 
 group :development do

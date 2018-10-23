@@ -33,6 +33,7 @@ RUN rvm-exec 2.5.1 bundle install --jobs 4 --retry 3 --deployment --without deve
 # Add startup script to run during container startup
 RUN mkdir -p /etc/my_init.d
 ADD ./bin/setup_database.sh /etc/my_init.d/setup_database.sh
+ADD ./bin/setup_cron.sh /etc/my_init.d/setup_cron.sh
 RUN chmod +x /etc/my_init.d/*.sh
 
 # Clean up APT and bundler when done.
